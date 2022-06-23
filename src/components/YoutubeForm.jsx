@@ -1,4 +1,4 @@
-import { useFormik } from "formik";
+import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup"; //object schema validation
 import "./YoutubeForm.css";
 
@@ -8,9 +8,7 @@ const initialValues = {
   channel: "",
 };
 
-const onSubmit = (values) => {
-  console.log(values);
-};
+const onSubmit = (values) => console.log(values);
 
 const validationSchema = Yup.object({
   name: Yup.string().required("Required"),
@@ -18,58 +16,34 @@ const validationSchema = Yup.object({
   channel: Yup.string().required("Requried"),
 });
 const YoutubeForm = () => {
-  const formik = useFormik({
-    initialValues,
-    onSubmit,
-    // validate,
-    validationSchema,
-  });
-  console.log(formik);
-
   return (
-    <div>
-      <form onSubmit={formik.handleSubmit}>
+    <Formik
+      initialValues={initialValues}
+      validationSchema={validationSchema}
+      onSubmit={onSubmit}
+    >
+      <Form>
         <div className="form-control">
           <label htmlFor="name">name</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            {...formik.getFieldProps("name")}
-          />
-          {formik.touched.name && formik.errors.name ? (
-            <div style={{ color: "red" }}>{formik.errors.name}</div>
-          ) : null}
+          <Field type="text" id="name" name="name" />
+          <ErrorMessage name="name" />
         </div>
+
         <div className="form-control">
           <label htmlFor="email">E-mail</label>
-          <input
-            type="email"
-            id="email"
-            name="email"
-            {...formik.getFieldProps("email")}
-          />
-          {formik.touched.email && formik.errors.email ? (
-            <div style={{ color: "red" }}>{formik.errors.email}</div>
-          ) : null}
+          <Field type="email" id="email" name="email" />
+          <ErrorMessage name="email" />
         </div>
 
         <div className="form-control">
           <label htmlFor="channel">Channel</label>
-          <input
-            type="text"
-            id="channel"
-            name="channel"
-            {...formik.getFieldProps("channel")}
-          />
-          {formik.touched.channel && formik.errors.channel ? (
-            <div style={{ color: "red" }}>{formik.errors.channel}</div>
-          ) : null}
+          <Field type="text" id="channel" name="channel" />
+          <ErrorMessage name="channel" />
         </div>
 
         <button type="submit">Submit</button>
-      </form>
-    </div>
+      </Form>
+    </Formik>
   );
 };
 
