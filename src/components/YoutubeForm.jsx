@@ -47,7 +47,7 @@ const YoutubeForm = () => {
             type="email"
             id="email"
             name="email"
-            {...formik.getFieldProps("name")}
+            {...formik.getFieldProps("email")}
           />
           {formik.touched.email && formik.errors.email ? (
             <div style={{ color: "red" }}>{formik.errors.email}</div>
@@ -60,7 +60,7 @@ const YoutubeForm = () => {
             type="text"
             id="channel"
             name="channel"
-            {...formik.getFieldProps("name")}
+            {...formik.getFieldProps("channel")}
           />
           {formik.touched.channel && formik.errors.channel ? (
             <div style={{ color: "red" }}>{formik.errors.channel}</div>
