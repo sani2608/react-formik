@@ -52,6 +52,7 @@ const YoutubeForm = () => {
       onSubmit={onSubmit}
       // validateOnChange={false}
       // validateOnBlur={false}
+      // validateOnMount
     >
       {(formik) => {
         console.log(formik);
@@ -82,6 +83,7 @@ const YoutubeForm = () => {
                 id="comments"
                 name="comments"
                 as="textarea"
+                placeholder="enter comments"
                 validate={validateComments}
               />
               <ErrorMessage name="comments" component={TextError} />
@@ -182,7 +184,14 @@ const YoutubeForm = () => {
               visit all fields
             </button>
 
-            <button type="submit">Submit</button>
+            <div className="button_class"></div>
+            <button
+              type="submit"
+              style={{ backgroundColor: "rgb(40, 208, 223)" }}
+              disabled={!formik.isValid}
+            >
+              Submit
+            </button>
           </Form>
         );
       }}

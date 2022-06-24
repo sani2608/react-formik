@@ -32,7 +32,7 @@ textarea {
 .error {
   color: red;
 }
-button {
+.button_class {
   font-size: 16px;
   letter-spacing: 2px;
   font-weight: 400 !important;
