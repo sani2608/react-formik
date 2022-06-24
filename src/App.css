@@ -32,3 +32,20 @@ textarea {
 .error {
   color: red;
 }
+button {
+  font-size: 16px;
+  letter-spacing: 2px;
+  font-weight: 400 !important;
+  background-color: rgb(40, 208, 223);
+  margin: 5px;
+  text-align: center;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  text-decoration: none;
+  border: 0px;
+  border-radius: 5px;
+  width: max-content;
+  cursor: pointer;
+  transition: all 0.3s 0s ease-in-out;
+}
