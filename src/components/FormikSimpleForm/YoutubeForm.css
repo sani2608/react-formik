@@ -5,20 +5,13 @@
 
 label {
     font-weight: bold;
-        display: flex;
-        margin-bottom: 5px;
+    display: flex;
+    margin-bottom: 5px;
 }
 
-input+label {
-    font-weight: bold;
-    display: inline-flex;
-    margin-right: 20px;
-}
 input[type='text'],
 input[type='email'],
-input[type='password'],
-textarea,
-select {
+textarea {
     display: block;
     width: 400px;
     padding: 6px 12px;
@@ -38,4 +31,8 @@ select {
 
 .error {
     color: red;
+}
+
+button:disabled {
+    cursor: not-allowed;
 }
