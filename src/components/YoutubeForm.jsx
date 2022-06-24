@@ -43,6 +43,7 @@ const onSubmit = (values, onSubmitProps) => {
   // console.log(values);
   console.log("on submit props", onSubmitProps);
   onSubmitProps.setSubmitting(false);
+  onSubmitProps.resetForm();
 };
 
 const validateComments = (value) => {
@@ -207,11 +208,24 @@ const YoutubeForm = () => {
 
             <div className="button_class"></div>
             <button
-              style={{ backgroundColor: "rgb(40, 208, 223)", marginRight: "10px" }}
+              style={{
+                backgroundColor: "rgb(40, 208, 223)",
+                marginRight: "10px",
+              }}
               type="button"
               onClick={() => setFormValues(savedValues)}
             >
               Load saved data
+            </button>
+
+            <button
+              type="reset"
+              style={{
+                backgroundColor: "rgb(40, 208, 223)",
+                  marginRight: "10px",
+              }}
+            >
+              Reset Form
             </button>
 
             <button
