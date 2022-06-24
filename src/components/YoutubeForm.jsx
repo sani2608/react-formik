@@ -6,6 +6,7 @@ import {
   Form,
   Formik,
 } from "formik";
+import { useState } from "react";
 import * as Yup from "yup"; //object schema validation
 import TextError from "./TextError";
 import "./YoutubeForm.css";
@@ -24,7 +25,25 @@ const initialValues = {
   phNumbers: [""],
 };
 
-const onSubmit = (values) => console.log(values);
+const savedValues = {
+  name: "sani",
+  email: "sani@gmail.com",
+  channel: "saniYou",
+  comments: "welcome to comments",
+  address: "unvired jayanagar",
+  social: {
+    facebook: "sani",
+    twitter: "sanikumarsahani",
+  },
+  phoneNumbers: ["9585757575", ""],
+  phNumbers: [""],
+};
+
+const onSubmit = (values, onSubmitProps) => {
+  // console.log(values);
+  console.log("on submit props", onSubmitProps);
+  onSubmitProps.setSubmitting(false);
+};
 
 const validateComments = (value) => {
   let error;
@@ -45,14 +64,16 @@ const validationSchema = Yup.object({
 });
 
 const YoutubeForm = () => {
+  const [formValues, setFormValues] = useState(null);
   return (
     <Formik
-      initialValues={initialValues}
+      initialValues={formValues || initialValues}
       validationSchema={validationSchema}
       onSubmit={onSubmit}
       // validateOnChange={false}
       // validateOnBlur={false}
       // validateOnMount
+      enableReinitialize
     >
       {(formik) => {
         console.log(formik);
@@ -152,7 +173,7 @@ const YoutubeForm = () => {
               </FieldArray>
             </div>
 
-            <button
+            {/* <button
               type="button"
               onClick={() => formik.validateField("comments")}
             >
@@ -182,13 +203,21 @@ const YoutubeForm = () => {
               }
             >
               visit all fields
-            </button>
+            </button> */}
 
             <div className="button_class"></div>
             <button
+              style={{ backgroundColor: "rgb(40, 208, 223)", marginRight: "10px" }}
+              type="button"
+              onClick={() => setFormValues(savedValues)}
+            >
+              Load saved data
+            </button>
+
+            <button
               type="submit"
               style={{ backgroundColor: "rgb(40, 208, 223)" }}
-              disabled={!formik.isValid}
+              disabled={!formik.isValid || formik.isSubmitting}
             >
               Submit
             </button>
