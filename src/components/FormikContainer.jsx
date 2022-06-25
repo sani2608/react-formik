@@ -1,6 +1,5 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
-import "./FormikContainer.css";
 import FormikControl from "./FormikControl";
 
 const FormikContainer = () => {
