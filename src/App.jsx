@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./App.css";
 import FormikContainer from "./components/FormikContainer";
 import LoginForm from "./components/LoginForm/LoginForm";
+import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -10,7 +11,8 @@ function App() {
     <div className="App">
       {/* <YoutubeForm /> */}
       {/* <FormikContainer /> */}
-      <LoginForm />
+      {/* <LoginForm /> */}
+      <RegistrationForm />
     </div>
   );
 }
