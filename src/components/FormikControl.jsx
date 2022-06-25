@@ -3,6 +3,7 @@ import Radio from "./FormikControls/Radio";
 import Select from "./FormikControls/Select";
 import TextArea from "./FormikControls/TextArea";
 import Checkbox from "./FormikControls/Checkbox";
+import DatePicker from "./FormikControls/DatePicker";
 
 const FormikControl = ({ control, ...rest }) => {
   switch (control) {
@@ -17,6 +18,7 @@ const FormikControl = ({ control, ...rest }) => {
     case "checkbox":
       return <Checkbox {...rest} />;
     case "date":
+      return <DatePicker {...rest} />;
     default:
       return null;
   }
