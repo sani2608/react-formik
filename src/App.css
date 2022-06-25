@@ -1,20 +1,22 @@
 .App {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-top: 100px;
 }
 
-label {
+/* label {
     font-weight: bold;
         display: flex;
         margin-bottom: 5px;
-}
+} */
 
 input+label {
     font-weight: bold;
     display: inline-flex;
     margin-right: 20px;
 }
-input[type='text'],
+/* input[type='text'],
 input[type='email'],
 input[type='password'],
 textarea,
@@ -29,8 +31,8 @@ select {
     background-image: none;
     border: 1px solid #ccc;
     border-radius: 4px;
-    /* margin-bottom: 20px; */
-}
+    margin-bottom: 20px; 
+} */
 
 .form-control {
     margin-bottom: 20px;

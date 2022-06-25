@@ -1,7 +1,7 @@
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormikControl";
-
+import { Button } from "@chakra-ui/react";
 const EnrolmentForm = () => {
   const dropdownOptions = [
     { key: "Select your course", value: "" },
@@ -60,9 +60,9 @@ const EnrolmentForm = () => {
               options={checkboxOptions}
             />
             <FormikControl control="date" label="Course Date" name="courseDate" />
-            <button type="submit" disabled={!formik.isValid}>
+            <Button colorScheme="blue" type="submit" disabled={!formik.isValid}>
               Submit
-            </button>
+            </Button>
           </Form>
         );
       }}
