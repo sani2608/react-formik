@@ -1,8 +1,9 @@
+import { Button, FormControl, Heading } from "@chakra-ui/react";
 import { Form, Formik } from "formik";
 import * as Yup from "yup";
 import FormikControl from "../FormikControl";
 
-const LoginForm = () => {
+const RegistrationForm = () => {
   const options = [
     {
       key: "Email",
@@ -23,7 +24,9 @@ const LoginForm = () => {
   };
 
   const validationSchema = Yup.object({
-    email: Yup.string().email("Invalid email format").required("Required email"),
+    email: Yup.string()
+      .email("Invalid email format")
+      .required("Required email"),
     password: Yup.string().required("Required"),
     confirmPassword: Yup.string()
       .oneOf([Yup.ref("password"), ""], "Passwords must match")
@@ -39,51 +42,63 @@ const LoginForm = () => {
   };
 
   return (
-    <Formik
-      initialValues={initialValues}
-      validationSchema={validationSchema}
-      onSubmit={onSubmit}
-    >
-      {(formik) => {
-        return (
-          <Form>
-            <FormikControl control="input" type="email" label="Email" name="email" />
-            <FormikControl
-              control="input"
-              type="password"
-              label="Password"
-              name="password"
-            />
+    <div className="RegistrationForm">
+      <Heading size="xl">Registration Form</Heading>
+      <Formik
+        initialValues={initialValues}
+        validationSchema={validationSchema}
+        onSubmit={onSubmit}
+      >
+        {(formik) => {
+          return (
+            <Form>
+              <FormikControl
+                control="chakrainput"
+                type="email"
+                label="Email"
+                name="email"
+              />
+              <FormikControl
+                control="chakrainput"
+                type="password"
+                label="Password"
+                name="password"
+              />
 
-            <FormikControl
-              control="input"
-              type="password"
-              label="confirm Password"
-              name="confirmPassword"
-            />
+              <FormikControl
+                control="chakrainput"
+                type="password"
+                label="confirm Password"
+                name="confirmPassword"
+              />
 
-            <FormikControl
-              control="radio"
-              label="mode of contact"
-              name="modeOfContact"
-              options={options}
-            />
+              <FormikControl
+                control="radio"
+                label="Mode of contact"
+                name="modeOfContact"
+                options={options}
+              />
 
-            <FormikControl
-              control="input"
-              type="text"
-              label="Phone number"
-              name="phone"
-            />
+              <FormikControl
+                control="chakrainput"
+                type="text"
+                label="Phone number"
+                name="phone"
+              />
 
-            <button type="submit" disabled={!formik.isValid}>
-              Submit
-            </button>
-          </Form>
-        );
-      }}
-    </Formik>
+              <Button
+                style={{ marginTop: "10px", marginBottom: "10px" }}
+                type="submit"
+                disabled={!formik.isValid}
+              >
+                Submit
+              </Button>
+            </Form>
+          );
+        }}
+      </Formik>
+    </div>
   );
 };
 
-export default LoginForm;
+export default RegistrationForm;

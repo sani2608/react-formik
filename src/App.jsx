@@ -3,7 +3,7 @@ import EnrolmentForm from "./components/EntolmentForm/EnrolmentForm";
 import FormikContainer from "./components/FormikContainer";
 import LoginForm from "./components/LoginForm/LoginForm";
 import RegistrationForm from "./components/RegistrationForm/RegistrationForm";
-import { ChakraProvider } from "@chakra-ui/react";
+import { ChakraProvider, Divider } from "@chakra-ui/react";
 
 function App() {
   return (
@@ -11,9 +11,11 @@ function App() {
       <div className="App">
         {/* <YoutubeForm /> */}
         {/* <FormikContainer /> */}
-        <LoginForm />
-        {/* <RegistrationForm /> */}
-        {/* <EnrolmentForm /> */}
+        <LoginForm  />
+        <Divider size={5} orientation='horizontal' />
+        <RegistrationForm />
+        <Divider size={5} orientation='horizontal' />
+        <EnrolmentForm />
       </div>
     </ChakraProvider>
   );

@@ -44,8 +44,9 @@ const EnrolmentForm = () => {
       {(formik) => {
         return (
           <Form>
-            <FormikControl control="input" type="email" label="Email" name="email" />
-            <FormikControl control="textarea" type="text" label="Bio" name="bio" />
+            <FormikControl control="chakrainput" type="email" label="Email" name="email" />
+            <FormikControl control="chakratextarea" type="text" label="Bio" name="bio" />
+
             <FormikControl
               control="select"
               label="Course"

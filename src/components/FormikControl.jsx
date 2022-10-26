@@ -5,6 +5,8 @@ import TextArea from "./FormikControls/TextArea";
 import Checkbox from "./FormikControls/Checkbox";
 import DatePicker from "./FormikControls/DatePicker";
 import ChakraInput from "./ChakraComponents/ChakraInput";
+import ChakraRadio from "./ChakraComponents/ChakraRadio";
+import ChakraTextarea from "./ChakraComponents/ChakraTextarea";
 
 const FormikControl = ({ control, ...rest }) => {
   switch (control) {
@@ -22,6 +24,10 @@ const FormikControl = ({ control, ...rest }) => {
       return <DatePicker {...rest} />;
     case "chakrainput":
       return <ChakraInput {...rest} />;
+    case "chakraradio":
+      return <ChakraRadio {...rest} />;
+    case "chakratextarea":
+      return <ChakraTextarea {...rest} />;
     default:
       return null;
   }

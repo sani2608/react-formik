@@ -18,8 +18,9 @@ const Radio = ({ label, name, options, ...rest }) => {
                   {...field}
                   value={option.value}
                   checked={field.value === option.value}
-                />
+                  />
                 <label htmlFor={option.value}>{option.key}</label>
+                
               </React.Fragment>
             );
           });
